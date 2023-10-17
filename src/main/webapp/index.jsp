@@ -29,7 +29,6 @@
 
 	
 </script>
-
 <body>
   <!-- 참조 : https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_theme_me_complete&stacked=h -->
 	
@@ -65,7 +64,7 @@
 <!-- content 끝 -->
 
 <!-- Second Container 시작 -->
-<div class="container-fluid bg-2 text-center">
+<div id="bg-2" class="container-fluid bg-2 text-center">
   <div class="row">
     <div class="col-xs-12"> 
       <!-- 본문 시작 -->
