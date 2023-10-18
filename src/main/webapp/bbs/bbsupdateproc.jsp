@@ -35,7 +35,7 @@
 	}else{
 		out.println("<script>");
 		out.println("	alert('게시글이 수정되었습니다~');");
-		out.println("	location.href='bbsList.jsp';");//목록 페이지 이동
+		out.println("	location.href='bbsList.jsp?col=" + col + "&word=" + word + "';");//목록 페이지 이동
 		out.println("</script>");
 	}//if end
 %>

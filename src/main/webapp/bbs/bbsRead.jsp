@@ -57,7 +57,7 @@
 		
 		<br>
 		<input type="button" value="답변쓰기" class="btn btn-info"    onclick="location.href='bbsreply.jsp?bbsno=<%=bbsno%>'">
-		<input type="button" value="수정"    class="btn btn-warning" onclick="location.href='bbsUpdate.jsp?bbsno=<%=bbsno%>'">
+		<input type="button" value="수정"    class="btn btn-warning" onclick="location.href='bbsUpdate.jsp?bbsno=<%=bbsno%>&col=<%=col%>&word=<%=word%>'">
 		<input type="button" value="삭제"    class="btn btn-danger"  onclick="location.href='bbsDel.jsp?bbsno=<%=bbsno%>'">
 <%	    
 	}//if end

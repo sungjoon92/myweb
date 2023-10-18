@@ -1,3 +1,4 @@
+<%@page import="java.nio.file.attribute.PosixFileAttributes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -25,7 +26,10 @@
 </thead>
 <tbody>
 <%
-	ArrayList<BbsDTO> list = dao.list();
+//한 페이지당 출력할 행의갯수
+	int recordPerPage = 5;
+
+	ArrayList<BbsDTO> list = dao.list3(col, word, nowPage, recordPerPage);
 	if(list==null){
 	    out.println("<tr>");
 	    out.println("  <td colspan='4'>");
@@ -50,7 +54,7 @@
 				}//for end
 %>
 				
-					<a href="bbsRead.jsp?bbsno=<%=dto.getBbsno()%>"><%=dto.getSubject()%></a>
+					<a href="bbsRead.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>"><%=dto.getSubject()%></a>
 <%
 					//오늘 작성한 글제목 뒤에 new이미지 출력
 					//작성일(regdt)에서 "년월일"자르기
@@ -85,6 +89,20 @@
 	    out.println("	</td>");
 	    out.println("</tr>");
 	    
+	    
+	    
+	    
+	    //페이지 리스트
+	    out.println("<tr>");
+	    out.println("	<td colspan='4' style='text-align:center;'>");
+
+	    String paging = new Paging().paging3(totalRecord, nowPage, recordPerPage, col, word, "bbsList.jsp");
+	    out.print(paging);
+	    out.println("	</td>");
+	    out.println("</tr>");
+	    
+	    
+	   
 	
 %>
 
@@ -105,8 +123,10 @@
 	</tr>
 <!-- 검색 끝 -->
 
+
 <%
 	}//if end
+
 %>
 
 </tbody>
@@ -114,4 +134,5 @@
 <!-- 본문 끝 -->
 
 <%@ include file="../footer.jsp" %>
+ 
     

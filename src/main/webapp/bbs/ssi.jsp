@@ -17,10 +17,22 @@
 
 
 <%
-	//검색
+	//검색/////////////////////////////////////
 	String col = request.getParameter("col");
 	String word = request.getParameter("word");
 	
 	col=Utility.checkNull(col);		//믄지얄 깂이 null이면 빈문자열로 치환
 	word = Utility.checkNull(word);
+
+
+
+
+
+
+	//햔제 출력할 행의갯수//////////////////////////////////
+		int nowPage = 1;
+	if(request.getParameter("nowPage")!=null){
+		nowPage = Integer.parseInt(request.getParameter("nowPage"));
+	}//if end
+
 %>

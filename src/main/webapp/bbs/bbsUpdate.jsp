@@ -21,6 +21,9 @@
 %>
 	<form name="bbsfrm" id="bbsfrm" method="post" action="bbsupdateproc.jsp" onsubmit="return bbsCheck()">
 		<input type="hidden" name="bbsno" value="<%=bbsno%>"><!-- 글번호 -->
+		<!-- 현재 페이지의 상태를 유지하기 위한 값 -->
+		<input type="hidden" name="col" value="<%=col%>">
+		<input type="hidden" name="word" value="<%=word%>">
 		<table class="table">
 			<tr>
 			   <th class="success">작성자</th>

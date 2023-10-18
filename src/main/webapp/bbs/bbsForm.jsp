@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 		   <th class="success">내용</th>
-		   <td><textarea rows="5"  class="form-control" name="content" id="content"></textarea></td>
+		   <td><textarea rows="5" name="content" class="form-control"  id="content"></textarea></td>
 		</tr>
 		<tr>
 		   <th class="success">비밀번호</th>
