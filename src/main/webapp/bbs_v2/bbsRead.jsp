@@ -3,8 +3,6 @@
 
 <%@ include file="ssi.jsp" %>
 <%@ include file="../header.jsp" %>
-<%@ include file="../member/auth.jsp" %>
-
 
 
 <!-- 본문 시작 bbsRead.jsp -->
@@ -60,12 +58,8 @@
 		<br>
 		<input type="button" value="답변쓰기" class="btn btn-info"    onclick="location.href='bbsreply.jsp?bbsno=<%=bbsno%>'">
 		<input type="button" value="수정"    class="btn btn-warning" onclick="location.href='bbsUpdate.jsp?bbsno=<%=bbsno%>&col=<%=col%>&word=<%=word%>'">
-<%	
-		if(s_mlevel.equals("A1")){
-%>
 		<input type="button" value="삭제"    class="btn btn-danger"  onclick="location.href='bbsDel.jsp?bbsno=<%=bbsno%>'">
-<%	
-		}//(등급에 따른 삭제버튼 보이기) if end
+<%	    
 	}//if end
 %>
 <!-- 본문 끝 -->

@@ -1,4 +1,3 @@
-<%@page import="java.nio.file.attribute.PosixFileAttributes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -26,10 +25,7 @@
 </thead>
 <tbody>
 <%
-//한 페이지당 출력할 행의갯수
-	int recordPerPage = 5;
-
-	ArrayList<BbsDTO> list = dao.list3(col, word, nowPage, recordPerPage);
+	ArrayList<BbsDTO> list = dao.list2(col, word);
 	if(list==null){
 	    out.println("<tr>");
 	    out.println("  <td colspan='4'>");
@@ -89,19 +85,6 @@
 	    out.println("	</td>");
 	    out.println("</tr>");
 	    
-	    
-	    
-	    //페이지 리스트
-	    out.println("<tr>");
-	    out.println("	<td colspan='4' style='text-align:center;'>");
-
-	    String paging = new Paging().paging3(totalRecord, nowPage, recordPerPage, col, word, "bbsList.jsp");
-	    out.print(paging);
-	    out.println("	</td>");
-	    out.println("</tr>");
-	    
-	    
-	   
 	
 %>
 
@@ -121,7 +104,6 @@
 		</td>
 	</tr>
 <!-- 검색 끝 -->
-
 
 <%
 	}//if end

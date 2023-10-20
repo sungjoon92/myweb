@@ -3,6 +3,9 @@
 
 <%@ include file="ssi.jsp" %>
 <%@ include file="../header.jsp" %>
+<!-- 본문 시작 -->
+<%@ include file="ssi.jsp" %>
+<%@ include file="../header.jsp" %>
 <%@ include file="../member/auth.jsp" %>
 
 
@@ -69,6 +72,6 @@
 	}//if end
 %>
 <!-- 본문 끝 -->
-
+<!-- 본문 끝 -->
 <%@ include file="../footer.jsp" %>
-    
+      
