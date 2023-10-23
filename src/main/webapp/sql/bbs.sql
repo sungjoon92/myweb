@@ -93,6 +93,7 @@ where bbsno=? and passwd=?
 
 번호 		제목 		 그룹번호	 들여쓰기	 글순서
 1	    서울시		   	1		0		0
+<<<<<<< HEAD
 	    ▶마포구		    1		1		1
 	    ▶▶이대		    1		2		2
 		▶▶▶삼원타워	    1		3		3	    
@@ -100,10 +101,7 @@ where bbsno=? and passwd=?
 	    ▶▶▶아이티윌	    1		3		5
 	    ▶▶▶▶4강의장	    1		3		6
 	    ▶강남구	   	    1		1		7
-2		제주도			2		0		0
-		에월읍	  	 	2		1		2	
-		서귀퐁	  	 	2		1		1	
-3		부산시			3		0		0
+
 
 글순서(snsnum) 재조정
 
@@ -122,6 +120,7 @@ where content like '%파스타%'
 -- 작성자에서 '파스타'가 있는지 검색
 where wname like '%파스타%' or content like '%파스타%'
 ////////////////////////////////////////////////
+
 [페이징] rownum 줄번호 활용
 1)
 select bbsno, subject, wname, readcnt, indent, regdt

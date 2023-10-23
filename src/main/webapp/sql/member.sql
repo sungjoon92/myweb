@@ -64,6 +64,7 @@ where id='korea' and passwd='12341234' and mlevel in ('A1', 'B1', 'C1', 'D1');
 
 
 
+<<<<<<< HEAD
 -- 아이디 중복확인
 SELECT count(id)
 FROM member
@@ -72,10 +73,6 @@ WHERE id=?
 
 insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, jop, mlevel, mdate)
 values(?, ?, ?, ?, ?, ?, ?, ?, ?, 'D1', sysdate);
-
-
-
-
 
 
 

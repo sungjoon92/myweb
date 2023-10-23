@@ -12,6 +12,9 @@
     ,content    varchar2(4000)   not null  -- 내용
     ,regdt      date   			 default   sysdate   -- 작성일
     ,readcnt  	number(5)        default   0 not null -- 글조회수
+    ,subject    varchar2(255)    not null  -- 제목
+    ,content    varchar2(4000)   not null  -- 내용
+    ,regdt      date   			 default   sysdate   -- 작성일
     ,passwd  	varchar2(10)     not null  -- 글비밀번호
     ,primary 	key(noticeno)                 -- noticeno 기본키
    );

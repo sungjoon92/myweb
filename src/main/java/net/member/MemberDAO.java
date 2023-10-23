@@ -50,7 +50,6 @@ public class MemberDAO { //Data Access Object
         return mlevel;
     }//loginProc() end
     
-    
 ///////////////////아이디 중복확인///////////////////////
     public int duplecateID(String id) {
         int cnt=0;
@@ -139,9 +138,6 @@ public class MemberDAO { //Data Access Object
         }//end
         return cnt;
     }//duplecateId() end
-    
-    
-    
     
     
 }//class end

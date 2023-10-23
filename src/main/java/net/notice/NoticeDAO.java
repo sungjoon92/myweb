@@ -23,7 +23,6 @@ public class NoticeDAO {
 	}// end
 	
 	
-////////////////////////////////////////////////////////////////////	
 	//행 추가
 	public int create(NoticeDTO dto) {
 	        int cnt=0;
@@ -218,3 +217,4 @@ public class NoticeDAO {
 	 
 	 
 }//NoticeDAO class end
+	

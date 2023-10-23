@@ -22,7 +22,6 @@
 	dto.setContent(content);
 	dto.setPasswd(passwd);
 	dto.setIp(ip);
-
 	int cnt = dao.create(dto);
 	
 	if(cnt==0){

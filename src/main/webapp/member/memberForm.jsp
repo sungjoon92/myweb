@@ -1,90 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file="../header.jsp" %>    
-    
+<%@ include file="../header.jsp" %>
+
 <!-- 본문 시작 memberForm.jsp-->
 <h3>* 회/원/가/입 *</h3>
 
-<span style="color:red; font-weight: bold">* 필수입력</span>
+<span style="color: red; font-weight: bold">* 필수입력</span>
 <br>
 
-<form name="memfrm" id="memfrm" method="post" action="memberproc.jsp" onsubmit="return memberCheck()">
-<table class="table" style="width:60%;">
-<tr>
-    <th>*아이디</th>
-    <td style="text-align: left">
-    	<input type="text" name="id" id="id" size="10" maxlength="10" readonly>
-    	<input type="button" value="ID중복확인" onclick="idCheck()"> <!-- 아이디 중복확인 -->
-    </td>
-</tr>
-<tr>
-    <th>*비밀번호</th>
-    <td style="text-align: left">
-    	<input type="password" name="passwd" id="passwd" size="10" maxlength="10" required>
-    	<input type="button" value="passwd중복확인" onclick="passwdCheck()"> <!-- 아이디 중복확인 -->
-    </td>
-</tr>
-<tr>
-    <th>*비밀번호 확인</th>
-    <td style="text-align: left">
-    	<input type="password" name="repasswd" id="repasswd" size="10" maxlength="10" required>
-    </td>
-</tr>
-<tr>
-    <th>*이름</th>
-    <td style="text-align: left">
-    	<input type="text" name="mname" id="mname" size="20" maxlength="20" required>
-    </td>
-</tr>
-<tr>
-    <th>*이메일</th>
-    <td style="text-align: left">
-    	<input type="text" name="email" id="email" size="25" maxlength="50" readonly>
-    	<input type="button" value="Email중복확인" onclick="EmailCheck()"> <!-- 아이디 중복확인 -->
-    </td>
-</tr>
-<tr>
-    <th>전화번호</th>
-    <td style="text-align: left"><input type="text" name="tel" id="tel" size="15" maxlength="14"></td>
-</tr>
-<tr>
-    <th>우편번호</th>
-    <td style="text-align: left">
-      <input type="text" name="zipcode" id="zipcode" size="7"  readonly>
-      <input type="button" value="주소찾기" onclick="DaumPostcode()">    
-    </td>
-</tr>
-<tr>  
-    <th>주소</th>
-    <td style="text-align: left"><input type="text" name="address1" id="address1" size="45" readonly></td>
-</tr>
-<tr>  
-    <th>나머지주소</th>
-    <td style="text-align: left"><input type="text" name="address2" id="address2" size="45"></td>
-</tr>
-<tr>  
-  <th>직업</th>
-  <td style="text-align: left">
-        <select name="job"  id="job">
-          <option value="0">선택하세요.</option>
-          <option value="A01">회사원</option>
-          <option value="A02" selected>IT관련직</option>
-          <option value="A03">학생</option>
-          <option value="A04">주부</option>
-          <option value="A05">기타</option>
-        </select>
-  </td>
-</tr>
-<tr>
-    <td colspan="2">
-        <input type="submit" value="회원가입"  class="btn btn-primary"/>
-        <input type="reset"  value="취소"     class="btn btn-primary"/>
-    </td>
-</tr>
-</table>
-</form>
+<form name="memfrm" id="memfrm" method="post" action="memberproc.jsp"
+	onsubmit="return memberCheck()">
 
+	<table class="table" style="width: 60%; margin: auto;">
+		<tr>
+			<th>*아이디</th>
+			<td style="text-align: left">
+				<input type="text" name="id" id="id" size="10" maxlength="10" readonly> 
+				<input type="button" value="ID중복확인" onclick="idCheck()"> <!-- 아이디 중복확인 -->
+		</tr>
+		<tr>
+			<th>*비밀번호</th>
+			<td style="text-align: left">
+				<input type="password" name="passwd" id="passwd" size="10" maxlength="10" required>
+				<input type="button" value="passwd중복확인" onclick="passwdCheck()">
+			</td>
+		</tr>
+		<tr>
+			<th>*비밀번호 확인</th>
+			<td style="text-align: left">
+				<input type="password" name="repasswd" id="repasswd" size="10" maxlength="10" required>
+			</td>
+		</tr>
+		<tr>
+			<th>*이름</th>
+			<td style="text-align: left"><input type="text" name="mname"
+				id="mname" size="20" maxlength="20" required></td>
+		</tr>
+		<tr>
+			<th>*이메일</th>
+			<td style="text-align: left"><input type="text" name="email"
+				id="email" size="25" maxlength="50" readonly> <input
+				type="button" value="Email중복확인" onclick="EmailCheck()"> <!-- 아이디 중복확인 -->
+			</td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td style="text-align: left"><input type="text" name="tel"
+				id="tel" size="15" maxlength="14"></td>
+		</tr>
+		<tr>
+			<th>우편번호</th>
+			<td style="text-align: left"><input type="text" name="zipcode"
+				id="zipcode" size="7" readonly> <input type="button"
+				value="주소찾기" onclick="DaumPostcode()"></td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td style="text-align: left"><input type="text" name="address1"
+				id="address1" size="45" readonly></td>
+		</tr>
+		<tr>
+			<th>나머지주소</th>
+			<td style="text-align: left"><input type="text" name="address2"
+				id="address2" size="45"></td>
+		</tr>
+		<tr>
+			<th>직업</th>
+			<td style="text-align: left"><select name="job" id="job">
+					<option value="0">선택하세요.</option>
+					<option value="A01">회사원</option>
+					<option value="A02" selected>IT관련직</option>
+					<option value="A03">학생</option>
+					<option value="A04">주부</option>
+					<option value="A05">기타</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="회원가입"
+				class="btn btn-primary" /> <input type="reset" value="취소"
+				class="btn btn-primary" /></td>
+		</tr>
+	</table>
+</form>
 
 
 <!-- ----- DAUM 우편번호 API 시작 ----- -->
@@ -168,18 +166,6 @@
           element_wrap.style.display = 'block';
       }
   </script>
-<!-- ----- DAUM 우편번호 API 종료----- -->
-<!-- 	<div id="idCheck" style="text-align: center">
-		<h3>아이디 중복확인</h3>
-		<form action="idCheckProc.jsp" onsubmit="return blankCheck()">
-			아이디 : <input type="text" name="modal_id" id="modal_id" maxlength="10" autofocus="autofocus"> 
-				  <input type="submit" value="중복확인">
-		</form>
-	<div>
-		<a href="">[창닫기]</a>
-	</div> -->
-</div>
-	
 	
 <!-- 본문 끝 -->
 
