@@ -93,15 +93,14 @@ where bbsno=? and passwd=?
 
 번호 		제목 		 그룹번호	 들여쓰기	 글순서
 1	    서울시		   	1		0		0
-	    ▶마포구		1		1		1
-	    ▶▶이대		1		2		2
-		▶▶▶삼원타워		1		3		3	    
-	    ▶▶신촌 		1		2		4
-	    ▶▶▶아이티윌		1		3		5
-	    ▶▶▶▶4강의장	1		3		6
-	    ▶강남구	   	1		1		7
+	    ▶마포구		    1		1		1
+	    ▶▶이대		    1		2		2
+		▶▶▶삼원타워	    1		3		3	    
+	    ▶▶신촌 		    1		2		4
+	    ▶▶▶아이티윌	    1		3		5
+	    ▶▶▶▶4강의장	    1		3		6
+	    ▶강남구	   	    1		1		7
 2		제주도			2		0		0
-
 		에월읍	  	 	2		1		2	
 		서귀퐁	  	 	2		1		1	
 3		부산시			3		0		0
@@ -122,3 +121,80 @@ where subject like '%파스타%'
 where content like '%파스타%'
 -- 작성자에서 '파스타'가 있는지 검색
 where wname like '%파스타%' or content like '%파스타%'
+////////////////////////////////////////////////
+[페이징] rownum 줄번호 활용
+1)
+select bbsno, subject, wname, readcnt, indent, regdt
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+2) rownum 추가
+select bbsno, subject, wname, readcnt, indent, regdt
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+3) 1)의 SQL문을 셀프 조인하고, rownum 추가
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+	from(
+		select bbsno, subject, wname, readcnt, indent, regdt
+		from tb_bbs
+		order by grpno desc, ansnum asc;
+);
+
+4) 줄번호 1~5조회 ()1페이지)
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+	from(
+		select bbsno, subject, wname, readcnt, indent, regdt
+		from tb_bbs
+		order by grpno desc, ansnum asc;
+	)
+where rownum>=1 and rownum<=5;
+
+5) 줄번호 6~9조회 (2페이지) -> 조회안됨  선택된 레코드가 없습니다
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+	from(
+		select bbsno, subject, wname, readcnt, indent, regdt
+		from tb_bbs
+		order by grpno desc, ansnum asc;
+	)
+where rownum>=6 and rownum<=9;
+
+6)줄번호가 있는 3)의 테이블을 한번 더 셀프조인하고, rownum칼럼명을 r로 바꾼다
+select *
+from(
+	select bbsno, subject, wname, readcnt, indent, regdt, rownum as r
+		from(
+			select bbsno, subject, wname, readcnt, indent, regdt
+			from tb_bbs
+			order by grpno desc, ansnum asc
+			)
+	)
+where r>=6 and r<=9;
+
+7) 페이지 + 검색
+	예)제목에서 '배고피' 가 있는 행을 검색해서 2페이지 6~10행 조회하시오
+select *
+from(
+	select bbsno, subject, wname, readcnt, indent, regdt, rownum as r
+		from(
+			select bbsno, subject, wname, readcnt, indent, regdt
+			from tb_bbs
+			where subject like '%배고파%'
+			order by grpno desc, ansnum asc
+			)
+	)
+where r>=6 and r<=9;
+///////////////////////////////////////////////
+
+
+[과제] 제목과 댓글(자식글)의 갯수를 조회하시오
+
+	제목
+	-----------------
+	대한민국  (3)
+	서울특별시 (5)
+	오필승코리아
+	무궁화 (2)
+
+	
+	

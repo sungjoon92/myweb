@@ -10,6 +10,7 @@
 <%
     int bbsno=Integer.parseInt(request.getParameter("bbsno"));
 %>
+                                                <!-- myscript.js -->
 	<form method="post" action="bbsDelProc.jsp" onsubmit="return pwCheck()">
 		<input type="hidden" name="bbsno" value="<%=bbsno%>">
 		<table class="table">

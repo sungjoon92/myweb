@@ -18,7 +18,7 @@ p {
 }
 
 .bg-1 {
-	background-color: #1abc9c;
+	background: linear-gradient(45deg, rgb(255, 255, 128), lightGreen);
 	color: #ffffff;
 }
 
@@ -69,4 +69,8 @@ p {
 }
 #img-circle {
     border-radius: 25%;
+    transition: 1s;
+}
+#img-circle:hover{
+	transform: rotate(10deg);
 }
