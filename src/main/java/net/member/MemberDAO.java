@@ -140,4 +140,35 @@ public class MemberDAO { //Data Access Object
     }//duplecateId() end
     
     
+    
+    
+    public String idcheck(MemberDTO dto) {
+        String id=null;
+        try {
+            con=dbopen.getConnection();
+            
+            sql=new StringBuilder();
+            sql.append(" SELECT id ");
+            sql.append("   FROM member ");
+            sql.append("  WHERE mname=? and email=? ");
+            
+            pstmt=con.prepareStatement(sql.toString());
+            
+            pstmt.setString(1, dto.getMname());
+            pstmt.setString(2, dto.getEmail());
+            
+            
+            rs= pstmt.executeQuery();            
+            if(rs.next()) {
+                id=rs.getString("id");
+            }//if end
+            
+        }catch (Exception e) {
+            System.out.println("로그인실패:" + e);
+        }finally {
+            DBClose.close(con, pstmt, rs);
+        }//end
+        return id;
+    }//loginProc() end
+    
 }//class end

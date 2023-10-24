@@ -77,8 +77,10 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="회원가입"
-				class="btn btn-primary" /> <input type="reset" value="취소"
+			<td colspan="2">
+			<input type="submit" value="회원가입"
+				class="btn btn-primary" /> 
+			<input type="reset" value="취소"
 				class="btn btn-primary" /></td>
 		</tr>
 	</table>
