@@ -1,4 +1,5 @@
 
+<%@page import="oracle.security.o5logon.d"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -14,28 +15,28 @@
 	String mname = request.getParameter("mname");
 	String email = request.getParameter("email");
 	
+	//out.print(mname);
+	//out.print(email);
+	
 	dto.setMname(mname);
 	dto.setEmail(email);
 	
-	String id = dao.idcheck(dto);
 	
-	if(id==null){
-	    out.println("해당 글 없음!!");
-	}else{ 
-%>
-		<table class="table">
-		<tr>
-			<th class="success">아이디</th>
-			<td><%=id%></td>
-		</tr>
-		<tr>
-			<a href="findepassword.jsp">비밀번호 찾기</a>
-		</tr>
-		</table>
+	boolean flag = dao.findID(dto);
+	if(flag == false){
+		out.println("<p>이름/이메일을 다시 한번 확인해주세요!!</p>");
+		out.println("<p><a href='javascript:history.back()'>[다시시도]</a></p>");
+	}else{
+		String message="";
+		message +="아이디/임시 비밀번호가 이메일로 전송되었습니다\\n";
+		message +="임시 비밀번호는 로그인후 회정정보수정에서 수정하시기 바랍니다";
+		out.println("<script>");
+		out.println("	alert('" + message + "');");
+		out.println("	location.href='loginForm.jsp';");
+		out.println("</script>");
 		
-		
-<%
 	}//if end
+
 %>
 
 

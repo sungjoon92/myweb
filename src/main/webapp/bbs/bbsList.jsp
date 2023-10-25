@@ -6,16 +6,18 @@
 <%@ include file="../header.jsp" %>
     
 <style>
-	.success th{
-		text-align: center;
-	}
+
+
+#table th {
+	text-align: center;
+}
 </style>
 
 <!-- 본문 시작 bbsList.jsp -->
 <h3>* 글목록 *</h3>
 <p><a href="bbsForm.jsp">[글쓰기]</a></p>
 
-<table class="table table-hover">
+<table id="table" class="table table-hover">
 <thead>
 	<tr class="success">
 		<th>제목</th>

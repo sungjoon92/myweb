@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
 <%@ include file="../header.jsp" %>
 <!-- 본문 시작 -->
-
+<%@ include file="ssi.jsp" %>
 
 <h3> 글 쓰기</h3>
 <p><a href="bbsList.jsp">[글목록]</a></p>
