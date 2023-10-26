@@ -9,6 +9,15 @@ public class NoticeDTO {
 	private String regdt; 	// date default sysdate -- 작성일
 	private String passwd;
 	private int readcnt;
+	
+	
+	
+	 //기본생성자 default constructor
+	 public NoticeDTO() {}
+	 
+	
+	
+	
 	/**
 	 * @return the noticeno
 	 */

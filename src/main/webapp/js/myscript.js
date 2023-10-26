@@ -1,4 +1,4 @@
-/**
+/**);;
  * myscript.js
  */
 
@@ -233,10 +233,70 @@ function findIDCheck() {
 
 
 
+function pdsCheck() {
+
+	//1)이름
+	let wname = document.getElementById("wname").value;
+	wname = wname.trim();
+	if (wname.length < 2) {
+		alert("이름 2글자 이상 입력해주세요");
+		return false;
+	}//if end
+
+	//2)제목
+
+	let subject = document.getElementById("subject").value;
+	subject = subject.trim();
+	if (subject.length < 2) {
+		alert("제목 2글자 이상 입력해주세요");
+		return false;
+	}//if end
+
+	//3)비밀번호 4~15글자 이내인지
+	let passwd = document.getElementById("passwd").value;
+	passwd = passwd.trim();
+	if (!(passwd.length >= 4 && passwd.length <= 15)) {
+		alert("비밀번호 4~15글자 이상 입력해주세요");
+		return false;
+	}//if end
+
+	//4)첨부파일 
+	//  파일의 확장명이 이미지 파일 (png, jpg, gif 인지 확인하시오)
+	let filename = document.getElementById("filename").value;
+	filename = filename.trim();
+	if (filename.length == 0) {
+		alert("첨부 파일 선택하세요~");
+		return false;
+	} else {
+		let dot = filename.lastIndexOf(".");	//filename변수값에서 마지막.인 순서값
+		let ext = filename.substr(dot + 1);		//확장명 . 마지막. 이후 문자열자르기
+		ext = ext.toLowerCase();				//확장명 전부 소문자 치환
+
+		if (ext == "png" || ext == "jpg" || ext == "gif") {
+			return true;
+		} else {
+			alert("이미지 파일만 업로드 가능합니다~");
+			return false;
+		}//if end
+	}//if end
 
 
 
+	/*function imgExpansion() {
+	alert("11");
+		let cnt = "";
+		cnt += "<div>"
+		cnt += <a href="../storage/<%=dto.getFilename()%>"></a>;
+		cnt += "</div>";
+
+		$("td").append('<li>' + cnt + '</li>');
 
 
+
+	}//imgExpansion() end*/
+
+
+
+}//pdsCheck() end
 
 

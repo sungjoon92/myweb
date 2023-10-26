@@ -11,9 +11,9 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 
 <%@ page import="net.utility.*"%>
-<%@ page import="net.bbs.*"%>
-<jsp:useBean id="dao" class="net.bbs.BbsDAO" scope="page"></jsp:useBean>  
-<jsp:useBean id="dto" class="net.bbs.BbsDTO" scope="page"></jsp:useBean>
+<%@ page import="net.pds.*"%>
+<jsp:useBean id="dao" class="net.pds.PdsDAO" scope="page"></jsp:useBean>  
+<jsp:useBean id="dto" class="net.pds.PdsDTO" scope="page"></jsp:useBean>
 
 <%request.setCharacterEncoding("UTF-8");%>
 

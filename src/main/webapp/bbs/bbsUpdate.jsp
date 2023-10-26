@@ -44,7 +44,7 @@
 			<tr>
 			    <td colspan="2" align="center">
 			       <input type="submit" value="수정" class="btn btn-success">
-			       <input type="reset"  value="취소" class="btn btn-danger">
+			       <input type="reset"  value="다시쓰기" class="btn btn-danger">
 			    </td>
 			</tr>
 		</table>
