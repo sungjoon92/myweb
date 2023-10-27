@@ -23,3 +23,5 @@ filename, filesize      : 첨부파일 관련 정보
 --글번호와 비밀번호가 일치하면 테이블 행 삭제 : /storage폴더에 저장된 첨부파일 삭제
 DELETE FROM tb_pds WHERE pdsno=? AND passwd=?
 
+
+

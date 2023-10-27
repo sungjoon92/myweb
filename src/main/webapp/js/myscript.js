@@ -272,31 +272,42 @@ function pdsCheck() {
 		let ext = filename.substr(dot + 1);		//확장명 . 마지막. 이후 문자열자르기
 		ext = ext.toLowerCase();				//확장명 전부 소문자 치환
 
-		if (ext == "png" || ext == "jpg" || ext == "gif") {
+		if (ext == "png" || ext == "jpg" || ext == "gif"){
 			return true;
-		} else {
+		}else{
 			alert("이미지 파일만 업로드 가능합니다~");
 			return false;
 		}//if end
 	}//if end
 
 
+	function pwCheck() {
+		let passwd = document.getElementById("passwd").value;
+		passwd = passwd.trim();
+		if (passwd.length < 4 || isNaN(passwd)) {
+			alert("비밀번호 4글자 이상 숫자로 입력해 주세요");
+			document.getElementById("passwd").focus();
+			return false;
+		}//if end
+	
+		let message = "진행된 내용은 복구되지 않습니다\n계속 진행할까요?";
+		if (confirm(message)) { //확인 true, 취소 false
+			return true;
+		} else {
+			return false;
+		}//if end
+	}//pwCheck()
 
-	/*function imgExpansion() {
-	alert("11");
-		let cnt = "";
-		cnt += "<div>"
-		cnt += <a href="../storage/<%=dto.getFilename()%>"></a>;
-		cnt += "</div>";
 
-		$("td").append('<li>' + cnt + '</li>');
-
-
-
-	}//imgExpansion() end*/
 
 
 
 }//pdsCheck() end
+
+
+
+
+
+
 
 

@@ -33,8 +33,8 @@
 				dto=list.get(i);
 %>	
 				<tr>
-					<td><%=dto.getSubject() %></td>
-					<td><a href="javascript:imgExpansion()"><img src="../storage/<%=dto.getFilename()%>" width="50" height="40"  onclick="return imgExpansion()"></a></td>
+					<td><a href="pdsRead.jsp?pdsno=<%=dto.getPdsno()%>"><%=dto.getSubject() %></a></td>
+					<td><a href="../storage/<%=dto.getFilename()%>"><img src="../storage/<%=dto.getFilename()%>" width="50" height="40" ></a></td>
 					<td><%=dto.getReadcnt() %></td>
 					<td><%=dto.getWname() %></td>
 					<td><%=dto.getRegdate().substring(0, 10)%></td>

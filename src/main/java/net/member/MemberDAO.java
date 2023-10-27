@@ -15,6 +15,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.RecipientStringTerm;
 
+import net.notice.NoticeDTO;
 import net.utility.DBClose;
 import net.utility.DBOpen;
 import net.utility.MyAuthenticator;
@@ -309,4 +310,81 @@ public class MemberDAO { // Data Access Object
 	 * out.println("passwd = "+pswd);
 	 */
 
+	
+	
+	
+	
+	 public int updateproc(MemberDTO dto) { //반환할 값이 없으면 int 대신 void
+	        int cnt = 0 ;
+	        try {
+	           con = dbopen.getConnection();
+	           
+	           sql = new StringBuilder();
+	           sql.append(" UPDATE member ");
+	           sql.append(" SET id=? ");
+	           sql.append(" , passwd=? ");
+	           sql.append(" , mname=? ");
+	           sql.append(" , tel=? ");
+	           sql.append(" , email=? ");
+	           sql.append(" , zipcode=? ");
+	           sql.append(" , address1=? ");
+	           sql.append(" , address2=? ");
+	           sql.append(" , job=? ");
+	           sql.append(" WHERE id=? AND passwd=? ");
+
+	           pstmt = con.prepareStatement(sql.toString());
+	           pstmt.setString(1, dto.getId());
+	          
+	           
+	           cnt = pstmt.executeUpdate();
+
+	        } catch (Exception e) {
+	           System.out.println("수정실패:" + e);
+	        } finally {
+	           DBClose.close(con, pstmt);
+	        }//end
+	        return cnt;
+	     }//updateproc() end
+	 
+	 
+	 
+	 public MemberDTO read(String id) {
+		 	MemberDTO dto = null;
+	        try {
+	            con = dbopen.getConnection();
+	            
+	            sql=new StringBuilder();
+	            sql.append(" SELECT id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate");
+	            sql.append("   FROM member ");
+	            sql.append("  WHERE id = ? ");
+	         
+	            pstmt=con.prepareStatement(sql.toString());
+	            pstmt.setString(1, id);
+	            
+	            rs=pstmt.executeQuery();
+	            if(rs.next()) {
+	                dto=new MemberDTO();
+	                dto.setId(rs.getString("id"));
+	                dto.setPasswd(rs.getString("passwd"));
+	                dto.setMname(rs.getString("mname"));
+	                dto.setTel(rs.getString("tel"));
+	                dto.setEmail(rs.getString("email"));
+	                dto.setZipcode(rs.getString("zipcode"));
+	                dto.setAddress1(rs.getString("address1"));
+	                dto.setAddress2(rs.getString("address2"));
+	                dto.setJob(rs.getString("job"));
+	                dto.setMlevel(rs.getString("mlevel"));
+	                dto.setMdate(rs.getString("mdate"));
+	                
+	            }//if end
+	            
+	        }catch (Exception e) {
+	            System.out.println("상세보기실패:"+e);
+	        }finally {
+	            DBClose.close(con, pstmt, rs);
+	        }//end
+	        
+	        return dto;
+	        
+	    }//read() end
 }// class end
