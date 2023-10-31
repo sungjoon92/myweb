@@ -15,6 +15,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.RecipientStringTerm;
 
+import net.bbs.BbsDTO;
 import net.notice.NoticeDTO;
 import net.utility.DBClose;
 import net.utility.DBOpen;
@@ -321,8 +322,8 @@ public class MemberDAO { // Data Access Object
 	           
 	           sql = new StringBuilder();
 	           sql.append(" UPDATE member ");
-	           sql.append(" SET id=? ");
-	           sql.append(" , passwd=? ");
+	           sql.append(" SET ");
+	           sql.append("  passwd=? ");
 	           sql.append(" , mname=? ");
 	           sql.append(" , tel=? ");
 	           sql.append(" , email=? ");
@@ -330,11 +331,18 @@ public class MemberDAO { // Data Access Object
 	           sql.append(" , address1=? ");
 	           sql.append(" , address2=? ");
 	           sql.append(" , job=? ");
-	           sql.append(" WHERE id=? AND passwd=? ");
+	           sql.append(" WHERE id=?");
 
 	           pstmt = con.prepareStatement(sql.toString());
-	           pstmt.setString(1, dto.getId());
-	          
+	           pstmt.setString(1, dto.getPasswd());   
+	           pstmt.setString(2, dto.getMname());    
+	           pstmt.setString(3, dto.getTel());      
+	           pstmt.setString(4, dto.getEmail());    
+	           pstmt.setString(5, dto.getZipcode());  
+	           pstmt.setString(6, dto.getAddress1()); 
+	           pstmt.setString(7, dto.getAddress2()); 
+	           pstmt.setString(8, dto.getJob());      
+	           pstmt.setString(9, dto.getId());       
 	           
 	           cnt = pstmt.executeUpdate();
 
@@ -387,4 +395,35 @@ public class MemberDAO { // Data Access Object
 	        return dto;
 	        
 	    }//read() end
+	 
+	 
+	 
+	 
+	 
+	 
+	 public int delete(MemberDTO dto) {
+	        int cnt=0;
+	        try {
+	            
+	            con=dbopen.getConnection();
+	            sql=new StringBuilder();
+	            sql.append(" DELETE FROM member ");
+	            sql.append(" WHERE id=? AND passwd=? ");
+	            
+	            pstmt=con.prepareStatement(sql.toString());
+	            pstmt.setString(1, dto.getId());
+	            pstmt.setString(2, dto.getPasswd());
+	            cnt=pstmt.executeUpdate();
+	            
+	        }catch (Exception e) {
+	            System.out.println("삭제 실패:"+e);
+	        }finally {
+	            DBClose.close(con, pstmt);
+	        }//end
+	        return cnt;
+	    }//delete() end
+	 
+	 
+	
+	    
 }// class end

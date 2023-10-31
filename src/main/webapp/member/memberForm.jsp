@@ -23,13 +23,13 @@
 			<th>*비밀번호</th>
 			<td style="text-align: left">
 				<input type="password" name="passwd" id="passwd" size="10" maxlength="10" required>
-				<input type="button" value="passwd중복확인" onclick="passwdCheck()">
 			</td>
 		</tr>
 		<tr>
 			<th>*비밀번호 확인</th>
 			<td style="text-align: left">
 				<input type="password" name="repasswd" id="repasswd" size="10" maxlength="10" required>
+				<input type="button" value="passwd중복확인" onclick="passwdCheck()">
 			</td>
 		</tr>
 		<tr>

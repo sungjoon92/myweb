@@ -86,7 +86,21 @@ UPDATE member
 SET passwd=?
 WHERE mname=? and email=?;
 
+--회원 수정
+UPDATE
+SET
+WHERE id=?;
 
+--회원 탈퇴
+1)
+UPDATE
+SET mlevel='F1';
+WHERE id=? AND passwd=?;
+
+2)
+DELETE
+FROM
+WHERE id=? AND passwd=?;
 
 
 
