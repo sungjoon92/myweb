@@ -131,10 +131,10 @@ public class MemberDAO { // Data Access Object
 			con = dbopen.getConnection();
 
 			sql = new StringBuilder();
-			sql.append(
-					" INSERT INTO member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate) ");
+			sql.append(" INSERT INTO member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate) ");
 			sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, 'D1', sysdate) ");
 
+			
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPasswd());
